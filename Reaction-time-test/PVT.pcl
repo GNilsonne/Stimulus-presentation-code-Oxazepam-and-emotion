@@ -1,0 +1,13 @@
+tr_interval.present();
+
+loop int r=1; until r > 40 begin
+	int p = random (-400, 400);
+	int q = random (-400, 400);
+	pic1.set_part_x( 1, p );
+	pic1.set_part_y( 1, q );
+	int t = random (2000, 10000);
+	tr_interval.set_duration( t );
+	tr_box.present();
+	tr_interval.present();
+	r=r+1;
+end;
