@@ -1,0 +1,306 @@
+Scenario - EP
+Logfile written - 04/07/2011 12:41:39
+
+Subject	Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+ep1a	1	Picture	fixation_cross	-9833	0	1	40146	2	0	40000	other	0
+ep1a	2	Nothing	port_output	30315	0	1			0		other	0
+ep1a	3	Picture	self_low	30479	0	1	33817	2	0	33810	other	0
+ep1a	4	Picture	shockpic	64462	0	2	20157	3	0	20000	other	0
+ep1a	4	Nothing	Shock	64463	1	1			0		other	0
+ep1a	5	Response	2	98338	13718	3
+ep1a	5	Response	5	99458	14838	3
+ep1a	5	Response	3	109056	24436	3
+ep1a	5	Response	3	126813	42193	3
+ep1a	6	Picture	fixation_cross	127098	0	1	40147	2	0	40000	other	0
+ep1a	7	Picture	notrial	167411	0	1	55140	2	0	55000	other	0
+ep1a	8	Picture	fixation_cross	222717	0	1	40147	2	0	40000	other	0
+ep1a	9	Nothing	port_output	262866	0	2			0		other	0
+ep1a	10	Picture	other_high	263031	0	1	38314	2	0	38270	other	0
+ep1a	11	Picture	shockpic	301511	0	2	20157	3	0	20000	other	0
+ep1a	11	Nothing	(no shock)	301512	1	1			0		other	0
+ep1a	12	Response	3	345737	24068	2
+ep1a	12	Response	2	353015	31346	3
+ep1a	12	Response	5	360934	39265	3
+ep1a	12	Response	2	366373	44704	3
+ep1a	12	Response	5	367573	45904	2
+ep1a	12	Response	2	371092	49423	3
+ep1a	12	Response	5	372132	50463	3
+ep1a	12	Response	3	387970	66301	3
+ep1a	13	Picture	fixation_cross	388302	0	1	40146	3	0	40000	other	0
+ep1a	14	Nothing	port_output	428451	0	1			0		other	0
+ep1a	15	Picture	self_high	428615	0	1	36482	2	0	36400	other	0
+ep1a	16	Picture	shockpic	465264	0	1	20156	2	0	20000	other	0
+ep1a	16	Nothing	Shock	465264	0	1			0		other	0
+ep1a	17	Response	2	505390	19969	3
+ep1a	17	Response	5	510189	24768	3
+ep1a	17	Response	2	513229	27808	2
+ep1a	17	Response	5	514349	28928	2
+ep1a	17	Response	3	544983	59562	3
+ep1a	17	Response	2	553782	68361	3
+ep1a	17	Response	5	556581	71160	3
+ep1a	17	Response	2	559141	73720	3
+ep1a	17	Response	5	560581	75160	2
+ep1a	17	Response	3	574418	88997	3
+ep1a	18	Picture	fixation_cross	574709	0	1	40147	2	0	40000	other	0
+ep1a	19	Picture	notrial	615023	0	1	55139	2	0	55000	other	0
+ep1a	20	Picture	fixation_cross	670329	0	1	40146	2	0	40000	other	0
+ep1a	21	Nothing	port_output	710478	0	1			0		other	0
+ep1a	22	Picture	other_low	710642	0	1	34316	2	0	34160	other	0
+ep1a	23	Picture	shockpic	745125	0	1	20156	3	0	20000	other	0
+ep1a	23	Nothing	(no shock)	745125	0	1			0		other	0
+ep1a	24	Response	3	779664	14382	3
+ep1a	24	Response	2	785103	19821	3
+ep1a	24	Response	5	786863	21581	2
+ep1a	24	Response	3	804860	39578	3
+ep1a	25	Picture	fixation_cross	805095	0	1	40147	2	0	40000	other	0
+ep1a	26	Picture	notrial	845408	0	2	55140	3	0	55000	other	0
+ep1a	27	Picture	fixation_cross	900714	0	1	40147	2	0	40000	other	0
+ep1a	28	Picture	notrial	941028	0	1	55139	2	0	55000	other	0
+ep1a	29	Picture	fixation_cross	996333	0	2	40147	3	0	40000	other	0
+ep1a	30	Nothing	port_output	1036483	0	1			0		other	0
+ep1a	31	Picture	other_low	1036647	0	1	33983	2	0	33850	other	0
+ep1a	32	Picture	shockpic	1070797	0	1	20156	2	0	20000	other	0
+ep1a	32	Nothing	(no shock)	1070797	0	1			0		other	0
+ep1a	33	Response	3	1104490	13536	3
+ep1a	33	Response	2	1110489	19535	3
+ep1a	33	Response	5	1113368	22414	3
+ep1a	33	Response	2	1140804	49850	3
+ep1a	33	Response	5	1141924	50970	2
+ep1a	33	Response	1	1151282	60328	3
+ep1a	33	Response	4	1152002	61048	2
+ep1a	33	Response	3	1164560	73606	3
+ep1a	34	Picture	fixation_cross	1164750	0	1	40147	2	0	40000	other	0
+ep1a	35	Nothing	port_output	1204899	0	1			0		other	0
+ep1a	36	Picture	other_high	1205063	0	1	38981	2	0	38820	other	0
+ep1a	37	Picture	shockpic	1244211	0	1	20156	2	0	20000	other	0
+ep1a	37	Nothing	(no shock)	1244211	0	1			0		other	0
+ep1a	38	Response	3	1304057	39689	2
+ep1a	38	Response	2	1308456	44088	3
+ep1a	38	Response	5	1320054	55686	3
+ep1a	38	Response	2	1325333	60965	3
+ep1a	38	Response	5	1326693	62325	2
+ep1a	38	Response	3	1344290	79922	3
+ep1a	39	Picture	fixation_cross	1344494	0	1	40147	2	0	40000	other	0
+ep1a	40	Picture	notrial	1384807	0	2	55140	3	0	55000	other	0
+ep1a	41	Picture	fixation_cross	1440113	0	1	40147	2	0	40000	other	0
+ep1a	42	Nothing	port_output	1480262	0	2			0		other	0
+ep1a	43	Picture	self_high	1480427	0	1	31151	2	0	31120	other	0
+ep1a	44	Picture	shockpic	1511744	0	2	20157	3	0	20000	other	0
+ep1a	44	Nothing	Shock	1511745	1	1			0		other	0
+ep1a	45	Response	2	1545936	14034	3
+ep1a	45	Response	5	1551295	19393	3
+ep1a	45	Response	2	1558574	26672	3
+ep1a	45	Response	5	1559454	27552	3
+ep1a	45	Response	3	1565933	34031	2
+ep1a	45	Response	2	1576971	45069	3
+ep1a	45	Response	5	1578731	46829	3
+ep1a	45	Response	2	1584810	52908	2
+ep1a	45	Response	5	1585530	53628	2
+ep1a	45	Response	2	1596568	64666	3
+ep1a	45	Response	5	1597128	65226	2
+ep1a	45	Response	3	1601127	69225	3
+ep1a	46	Picture	fixation_cross	1601367	0	1	40146	3	0	40000	other	0
+ep1a	47	Nothing	port_output	1641516	0	1			0		other	0
+ep1a	48	Picture	other_high	1641680	0	1	33817	2	0	33720	other	0
+ep1a	49	Picture	shockpic	1675663	0	1	20157	2	0	20000	other	0
+ep1a	49	Nothing	(no shock)	1675664	1	1			0		other	0
+ep1a	50	Response	3	1711669	15849	2
+ep1a	50	Response	2	1716388	20568	2
+ep1a	50	Response	5	1726146	30326	3
+ep1a	50	Response	2	1729506	33686	2
+ep1a	50	Response	5	1730865	35045	3
+ep1a	50	Response	3	1754541	58721	3
+ep1a	51	Picture	fixation_cross	1754791	0	1	40146	3	0	40000	other	0
+ep1a	52	Nothing	port_output	1794940	0	1			0		other	0
+ep1a	53	Picture	other_low	1795104	0	1	38481	2	0	38330	other	0
+ep1a	54	Picture	shockpic	1833751	0	2	20157	3	0	20000	other	0
+ep1a	54	Nothing	(no shock)	1833752	1	1			0		other	0
+ep1a	55	Response	3	1872922	19013	2
+ep1a	55	Response	2	1879161	25252	2
+ep1a	55	Response	5	1881560	27651	3
+ep1a	55	Response	1	1893238	39329	3
+ep1a	55	Response	4	1894598	40689	3
+ep1a	55	Response	3	1903477	49568	2
+ep1a	56	Picture	fixation_cross	1903717	0	1	40146	3	0	40000	other	0
+ep1a	57	Picture	notrial	1944030	0	1	55139	2	0	55000	other	0
+ep1a	58	Picture	fixation_cross	1999336	0	1	40147	2	0	40000	other	0
+ep1a	59	Picture	notrial	2039649	0	1	55140	2	0	55000	other	0
+ep1a	60	Picture	fixation_cross	2094955	0	1	40147	2	0	40000	other	0
+ep1a	61	Nothing	port_output	2135104	0	2			0		other	0
+ep1a	62	Picture	other_low	2135269	0	1	31317	2	0	31170	other	0
+ep1a	63	Picture	shockpic	2166753	0	1	20157	2	0	20000	other	0
+ep1a	63	Nothing	(no shock)	2166753	0	2			0		other	0
+ep1a	64	Response	3	2199507	12597	3
+ep1a	64	Response	2	2203426	16516	3
+ep1a	64	Response	5	2205266	18356	3
+ep1a	64	Response	2	2208786	21876	2
+ep1a	64	Response	5	2209585	22675	3
+ep1a	64	Response	3	2214225	27315	2
+ep1a	65	Picture	fixation_cross	2214396	0	1	40147	2	0	40000	other	0
+ep1a	66	Picture	notrial	2254709	0	1	55140	2	0	55000	other	0
+ep1a	67	Picture	fixation_cross	2310015	0	1	40147	2	0	40000	other	0
+ep1a	68	Picture	notrial	2350328	0	2	55140	3	0	55000	other	0
+ep1a	69	Picture	fixation_cross	2405634	0	2	40147	3	0	40000	other	0
+ep1a	70	Nothing	port_output	2445783	0	2			0		other	0
+ep1a	71	Picture	self_low	2445948	0	1	35482	2	0	35410	other	0
+ep1a	72	Picture	shockpic	2481597	0	1	20156	3	0	20000	other	0
+ep1a	72	Nothing	Shock	2481597	0	1			0		other	0
+ep1a	73	Response	3	2517934	16180	3
+ep1a	73	Response	2	2822923	321169	3
+ep1a	73	Response	5	2824123	322369	2
+ep1a	73	Response	3	2841400	339646	3
+ep1a	74	Picture	fixation_cross	2841585	0	1	40147	2	0	40000	other	0
+ep1a	75	Nothing	port_output	2881734	0	1			0		other	0
+ep1a	76	Picture	self_low	2881898	0	1	34150	2	0	34070	other	0
+ep1a	77	Picture	shockpic	2916214	0	2	20157	3	0	20000	other	0
+ep1a	77	Nothing	Shock	2916215	1	1			0		other	0
+ep1a	78	Response	2	2950582	14210	2
+ep1a	78	Response	5	2952181	15809	3
+ep1a	78	Response	3	2968099	31727	2
+ep1a	78	Response	2	3020250	83878	3
+ep1a	78	Response	5	3020810	84438	2
+ep1a	78	Response	3	3029289	92917	2
+ep1a	79	Picture	fixation_cross	3029492	0	1	40146	3	0	40000	other	0
+ep1a	80	Picture	notrial	3069805	0	1	55139	2	0	55000	other	0
+ep1a	81	Picture	fixation_cross	3125111	0	1	40147	2	0	40000	other	0
+ep1a	82	Picture	notrial	3165424	0	1	55139	3	0	55000	other	0
+ep1a	83	Picture	fixation_cross	3220730	0	1	40147	2	0	40000	other	0
+ep1a	84	Nothing	port_output	3260879	0	1			0		other	0
+ep1a	85	Picture	self_high	3261043	0	2	37482	3	0	37460	other	0
+ep1a	86	Picture	shockpic	3298691	0	2	20157	3	0	20000	other	0
+ep1a	86	Nothing	Shock	3298692	1	1			0		other	0
+ep1a	87	Response	2	3337957	19108	3
+ep1a	87	Response	5	3341476	22627	3
+ep1a	87	Response	2	3345956	27107	2
+ep1a	87	Response	5	3347075	28226	3
+ep1a	87	Response	2	3352755	33906	2
+ep1a	87	Response	5	3353554	34705	3
+ep1a	87	Response	1	3365472	46623	3
+ep1a	87	Response	4	3365872	47023	3
+ep1a	87	Response	3	3374271	55422	3
+ep1a	87	Response	2	3399227	80378	3
+ep1a	87	Response	5	3400427	81578	2
+ep1a	87	Response	2	3408425	89576	3
+ep1a	87	Response	5	3409465	90616	2
+ep1a	87	Response	3	3414584	95735	3
+ep1a	88	Picture	fixation_cross	3414800	0	2	40147	3	0	40000	other	0
+ep1a	89	Nothing	port_output	3454950	0	1			0		other	0
+ep1a	90	Picture	other_high	3455114	0	1	39480	2	0	39470	other	0
+ep1a	91	Picture	shockpic	3494761	0	1	20156	3	0	20000	other	0
+ep1a	91	Nothing	(no shock)	3494761	0	1			0		other	0
+ep1a	92	Response	3	3530245	15327	3
+ep1a	92	Response	2	3534964	20046	3
+ep1a	92	Response	5	3541763	26845	2
+ep1a	92	Response	2	3545202	30284	3
+ep1a	92	Response	5	3546642	31724	3
+ep1a	92	Response	3	3562559	47641	3
+ep1a	93	Picture	fixation_cross	3562727	0	1	40147	2	0	40000	other	0
+ep1a	94	Picture	notrial	3603040	0	2	55140	3	0	55000	other	0
+ep1a	95	Picture	fixation_cross	3658346	0	2	40147	3	0	40000	other	0
+ep1a	96	Nothing	port_output	3698495	0	2			0		other	0
+ep1a	97	Picture	other_high	3698660	0	1	34316	2	0	34190	other	0
+ep1a	98	Picture	shockpic	3733143	0	1	20156	2	0	20000	other	0
+ep1a	98	Nothing	(no shock)	3733143	0	1			0		other	0
+ep1a	99	Response	3	3776844	23544	2
+ep1a	99	Response	2	3780283	26983	3
+ep1a	99	Response	5	3788682	35382	2
+ep1a	99	Response	2	3791961	38661	3
+ep1a	99	Response	5	3794361	41061	3
+ep1a	99	Response	2	3798680	45380	3
+ep1a	99	Response	5	3799640	46340	3
+ep1a	99	Response	3	3805959	52659	3
+ep1a	100	Picture	fixation_cross	3806273	0	1	40147	2	0	40000	other	0
+ep1a	101	Picture	notrial	3846586	0	1	55140	2	0	55000	other	0
+ep1a	102	Picture	fixation_cross	3901892	0	1	40147	2	0	40000	other	0
+ep1a	103	Nothing	port_output	3942041	0	2			0		other	0
+ep1a	104	Picture	self_low	3942206	0	1	33316	3	0	33150	other	0
+ep1a	105	Picture	shockpic	3975689	0	1	20157	2	0	20000	other	0
+ep1a	105	Nothing	Shock	3975689	0	2			0		other	0
+ep1a	106	Response	2	4010725	14879	2
+ep1a	106	Response	5	4012964	17118	3
+ep1a	106	Response	2	4028322	32476	2
+ep1a	106	Response	5	4029282	33436	2
+ep1a	106	Response	3	4036160	40314	3
+ep1a	106	Response	2	4042879	47033	3
+ep1a	106	Response	5	4043679	47833	3
+ep1a	106	Response	3	4048638	52792	3
+ep1a	107	Picture	fixation_cross	4048819	0	1	40147	2	0	40000	other	0
+ep1a	108	Picture	notrial	4089133	0	1	55139	2	0	55000	other	0
+ep1a	109	Picture	fixation_cross	4144422	0	31	40163	32	0	40000	other	0
+ep1a	110	Picture	notrial	4184752	0	1	55139	2	0	55000	other	0
+ep1a	111	Picture	fixation_cross	4240058	0	1	40147	2	0	40000	other	0
+ep1a	112	Nothing	port_output	4280207	0	1			0		other	0
+ep1a	113	Picture	other_low	4280371	0	1	34483	2	0	34460	other	0
+ep1a	114	Picture	shockpic	4315021	0	1	20156	2	0	20000	other	0
+ep1a	114	Nothing	(no shock)	4315021	0	1			0		other	0
+ep1a	115	Response	3	4347308	12130	3
+ep1a	115	Response	2	4351788	16610	2
+ep1a	115	Response	5	4354827	19649	3
+ep1a	115	Response	2	4366505	31327	3
+ep1a	115	Response	5	4367225	32047	3
+ep1a	115	Response	3	4376983	41805	3
+ep1a	116	Picture	fixation_cross	4377156	0	2	40147	3	0	40000	other	0
+ep1a	117	Picture	notrial	4417470	0	1	55139	2	0	55000	other	0
+ep1a	118	Picture	fixation_cross	4472776	0	1	40146	3	0	40000	other	0
+ep1a	119	Picture	notrial	4513089	0	1	55139	2	0	55000	other	0
+ep1a	120	Picture	fixation_cross	4568395	0	1	40147	2	0	40000	other	0
+ep1a	121	Nothing	port_output	4608544	0	1			0		other	0
+ep1a	122	Picture	self_low	4608708	0	1	32151	2	0	32090	other	0
+ep1a	123	Picture	shockpic	4641026	0	1	20156	2	0	20000	other	0
+ep1a	123	Nothing	Shock	4641026	0	1			0		other	0
+ep1a	124	Response	2	4674694	13511	3
+ep1a	124	Response	5	4676134	14951	2
+ep1a	124	Response	2	4685812	24629	3
+ep1a	124	Response	5	4686532	25349	2
+ep1a	124	Response	3	4699410	38227	3
+ep1a	124	Response	2	4707328	46145	3
+ep1a	124	Response	5	4708368	47185	3
+ep1a	124	Response	1	4733404	72221	3
+ep1a	124	Response	4	4734364	73181	2
+ep1a	124	Response	3	4737563	76380	3
+ep1a	125	Picture	fixation_cross	4737811	0	1	40147	2	0	40000	other	0
+ep1a	126	Picture	notrial	4778124	0	1	55140	2	0	55000	other	0
+ep1a	127	Picture	fixation_cross	4833430	0	1	40147	2	0	40000	other	0
+ep1a	128	Nothing	port_output	4873579	0	1			0		other	0
+ep1a	129	Picture	self_high	4873743	0	2	30819	3	0	30710	other	0
+ep1a	130	Picture	shockpic	4904728	0	1	20157	2	0	20000	other	0
+ep1a	130	Nothing	Shock	4904729	1	1			0		other	0
+ep1a	131	Response	2	4937530	12645	3
+ep1a	131	Response	5	4941529	16644	3
+ep1a	131	Response	2	4950488	25603	2
+ep1a	131	Response	5	4951128	26243	2
+ep1a	131	Response	3	4957527	32642	2
+ep1a	131	Response	2	4962246	37361	2
+ep1a	131	Response	5	4963765	38880	3
+ep1a	131	Response	2	4965845	40960	3
+ep1a	131	Response	5	4966885	42000	3
+ep1a	131	Response	2	4969285	44400	2
+ep1a	131	Response	5	4969844	44959	3
+ep1a	131	Response	3	4979443	54558	3
+ep1a	132	Picture	fixation_cross	4979691	0	1	40147	2	0	40000	other	0
+ep1a	133	Picture	notrial	5020004	0	1	55140	2	0	55000	other	0
+ep1a	134	Picture	fixation_cross	5075310	0	1	40147	2	0	40000	other	0
+ep1a	135	Nothing	port_output	5115459	0	1			0		other	0
+ep1a	136	Picture	self_high	5115623	0	2	38981	3	0	38970	other	0
+ep1a	137	Picture	shockpic	5154771	0	1	20156	3	0	20000	other	0
+ep1a	137	Nothing	Shock	5154771	0	1			0		other	0
+ep1a	138	Response	2	5188048	13120	3
+ep1a	138	Response	5	5192047	17119	3
+ep1a	138	Response	2	5199166	24238	3
+ep1a	138	Response	5	5200526	25598	2
+ep1a	138	Response	3	5216123	41195	3
+ep1a	138	Response	2	5220043	45115	3
+ep1a	138	Response	5	5222762	47834	3
+ep1a	138	Response	2	5224762	49834	3
+ep1a	138	Response	5	5225722	50794	2
+ep1a	138	Response	2	5228361	53433	3
+ep1a	138	Response	5	5229161	54233	3
+ep1a	138	Response	1	5246198	71270	3
+ep1a	138	Response	4	5247478	72550	3
+ep1a	138	Response	2	5250918	75990	2
+ep1a	138	Response	5	5251717	76789	3
+ep1a	138	Response	3	5258836	83908	3
+ep1a	139	Picture	fixation_cross	5259052	0	1	40147	2	0	40000	other	0
+ep1a	140	Picture	notrial	5299366	0	1	55139	2	0	55000	other	0
+ep1a	141	Picture	fixation_cross	5354672	0	1	40146	3	0	40000	other	0

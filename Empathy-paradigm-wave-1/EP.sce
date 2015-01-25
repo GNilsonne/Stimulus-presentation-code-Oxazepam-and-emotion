@@ -90,7 +90,7 @@ trial {
          text {caption = "condition";}; x = 0; y = 0;
          } pic_condition;  
 		time=0;
-		duration = 	500;
+		duration = 	4000; #This will later be defined in the pcl
       code = "condition";
       } ev_condition;	
       
@@ -131,12 +131,6 @@ trial {
 		port_code = 1;
 		} ev_shock;		
 		
-	stimulus_event{ 
-		picture fixation_cross;  
-		time = 2000;
-      code = "shockpic";
-      } ev_shockcross;
-      
 	} tr_shock;
 
 # RATING SCALE #

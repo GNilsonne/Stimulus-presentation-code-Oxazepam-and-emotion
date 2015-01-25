@@ -1,0 +1,228 @@
+#Int definitions for portoutput to acqKnowledge
+
+int pulse_shock = 1;
+int shocklength = 100;
+int pulse_self_high = 2;
+int pulse_self_low = 4;
+int pulse_other_high = 8;
+int pulse_other_low = 16;
+int pulse_notrial = 32;
+int pulse_noshock = 64;
+
+############################################################
+
+#####Start presentation with default
+#default.present();
+parameter_window.remove_all();
+
+##################################################################
+#definitions for input file = text file
+#  1=trial nr
+#  2=code (Condition 1-4)
+###################################################################
+
+string enterfname = logfile.subject();
+# When program is run, enter "xx1a" or "xx1b" at subject prompt.
+# This controls which triallist/inputfile is opened.
+
+string fname = "triallist_" + enterfname + ".txt";
+
+int ntmax = 40; #number of trials
+
+array<int> alltrials[ntmax][3];#number of columns
+
+#open input file
+input_file myfile = new input_file;
+myfile.open(fname);
+
+#Read input file
+loop int r=1 until r> ntmax begin
+	alltrials[r][1] = myfile.get_int();
+	alltrials[r][2] = myfile.get_int(); 
+	alltrials[r][3] = myfile.get_int();	
+	r=r+1;
+end;
+myfile.close();
+
+output_file resfile = new output_file;
+resfile.open( "RESULTAT_EP.txt", false);
+resfile.print("1=self_high, 2=self_low, 3=other_high, 4=other_low");
+resfile.print("\n");
+resfile.print("Tillstånd");
+resfile.print("\t");
+resfile.print("Intensitet");
+resfile.print("\t");
+resfile.print("Obehag");
+resfile.print("\n");
+
+########################################	
+#Main Trial
+#######################################
+tr_fixation_cross.present ();	
+
+loop int cnt=1; until cnt > 40 begin
+
+	int thiscode = alltrials[cnt][2];
+	int thisshock = alltrials[cnt][3];
+	
+	int r=(random(3000,4000));
+	int notrialdur=5500;
+		
+	if thiscode==0 && thisshock ==0 then
+	
+		pic_condition.set_part(1,notrial_1);
+		ev_condition.set_event_code("notrial");
+		ev_port_output.set_port_code(pulse_notrial);			
+		ev_condition.set_duration(notrialdur);			
+		
+		tr_condition.present();
+
+	
+	elseif thiscode != 0 then
+		ev_condition.set_duration(r);
+		pic_shock.set_part(1, shockpic_self_high);
+			
+	if thiscode == 1 then
+		pic_condition.set_part(1,self_high);
+		pic_shock.set_part(1,shockpic_self_high);
+		ev_condition.set_event_code("self_high");
+		ev_port_output.set_port_code(pulse_self_high);
+		resfile.print ("1"); 
+		resfile.print ("\t");
+			
+	elseif thiscode == 2 then
+		pic_condition.set_part(1, self_low);
+		pic_shock.set_part(1,shockpic_self_low);
+		ev_condition.set_event_code("self_low");
+		ev_port_output.set_port_code(pulse_self_low);
+		resfile.print ("2"); 
+		resfile.print ("\t");
+			
+	elseif thiscode == 3 then
+		pic_condition.set_part(1, other_high);
+		pic_shock.set_part(1,shockpic_other_high);
+		ev_condition.set_event_code("other_high");
+		ev_port_output.set_port_code(pulse_other_high);
+		resfile.print ("3"); 
+		resfile.print ("\t");
+		
+	elseif thiscode == 4 then
+		pic_condition.set_part(1, other_low);
+		pic_shock.set_part(1,shockpic_other_low);
+		ev_condition.set_event_code("other_low");
+		ev_port_output.set_port_code(pulse_other_low);
+		resfile.print ("4"); 
+		resfile.print ("\t");	
+end; 
+	
+	if thisshock == 0 then
+		ev_shock.set_port_code(pulse_noshock);
+		ev_shock.set_code_width(0);
+		ev_shock.set_event_code("(no shock)");
+			
+	elseif thisshock == 1 then
+		ev_shock.set_port_code(pulse_shock);
+		ev_shock.set_code_width(shocklength);
+		ev_shock.set_event_code("Shock");
+end;
+				
+	tr_port_output.present();	
+	tr_condition.present();
+	tr_shock.present();	
+
+end;
+
+cnt=cnt+1;
+
+if thiscode==0 && thisshock ==0 then
+	tr_fixation_cross.present ();	
+	
+elseif thiscode != 0 then
+	tr_rate.present();
+
+	loop 
+		int confirm = response_manager.total_response_count( 3 ); 
+		int right = response_manager.total_response_count( 2 ); 
+		int right_up = response_manager.total_response_count( 5 );
+		int left = response_manager.total_response_count( 1 );
+		int left_up = response_manager.total_response_count( 4 ); 
+		int x = -100; 
+		int x_inc = 2; 
+		int movement = 0;
+		scale.set_part(3,number[1]); 
+		scale.set_part(4,number[2]); 
+		scale.set_part(5,questions[1]); 
+		scale.present(); 
+	until 
+		response_manager.total_response_count( 3 ) > confirm 
+	begin 
+		if response_manager.total_response_count( 1 ) > left then 
+			movement = -1;
+			left = response_manager.total_response_count( 1 );
+		elseif response_manager.total_response_count( 4 ) > left_up then 
+			movement = 0;
+			left_up = response_manager.total_response_count( 4 ); 
+		elseif response_manager.total_response_count( 2 ) > right then 
+			movement = 1;
+			right = response_manager.total_response_count( 2 );
+		elseif response_manager.total_response_count( 5 ) > right_up then 
+			movement = 0;
+			right_up = response_manager.total_response_count( 5 );		
+	end; 
+	x = x + (movement * x_inc); 
+	if x < -100 then x = -100 elseif x > 100 then x = 100 end;
+			
+	scale.set_part_x( 2, x ); 
+	scale.present(); 
+	
+	if response_manager.total_response_count( 3 ) > confirm then
+		resfile.print (x); 
+		resfile.print ("\t");
+	end;
+	end;
+
+	loop 
+		int confirm = response_manager.total_response_count( 3 ); 
+		int right = response_manager.total_response_count( 2 ); 
+		int right_up = response_manager.total_response_count( 5 );
+		int left = response_manager.total_response_count( 1 );
+		int left_up = response_manager.total_response_count( 4 ); 
+		int x = -100; 
+		int x_inc = 2; 
+		int movement = 0;
+		scale.set_part(3,number[1]); 
+		scale.set_part(4,number[2]); 
+		scale.set_part(5,questions[2]); 
+		scale.present(); 
+	until 
+		response_manager.total_response_count( 3 ) > confirm 
+	begin 
+		if response_manager.total_response_count( 1 ) > left then 
+			movement = -1;
+			left = response_manager.total_response_count( 1 );
+		elseif response_manager.total_response_count( 4 ) > left_up then 
+			movement = 0;
+			left_up = response_manager.total_response_count( 4 ); 
+		elseif response_manager.total_response_count( 2 ) > right then 
+			movement = 1;
+			right = response_manager.total_response_count( 2 );
+		elseif response_manager.total_response_count( 5 ) > right_up then 
+			movement = 0;
+			right_up = response_manager.total_response_count( 5 );		
+	end; 
+		x = x + (movement * x_inc); 
+		if x < -100 then x = -100 elseif x > 100 then x = 100 end;
+				
+		scale.set_part_x( 2, x ); 
+		scale.present(); 
+		if response_manager.total_response_count( 3 ) > confirm then
+		resfile.print (x); 
+		resfile.print ("\n");
+		end;
+	end;
+
+	tr_fixation_cross.present ();	
+
+
+end;
+end;
