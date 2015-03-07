@@ -1,0 +1,123 @@
+#Int definitions for portoutput to acqKnowledge
+
+int pulse_angry = 4;
+int pulse_happy = 8;
+int pulse_neutral = 16;
+
+############################################################
+
+#####Start presentation with default
+default.present();
+parameter_window.remove_all();
+
+# When program is run, enter "FMOVa" or "FMOVb".
+# This controls which file is opened.
+string enterfname = logfile.subject();
+
+# Read in trial order from file.
+string fname = "triallist_" + enterfname + ".txt";
+
+output_file resfile = new output_file;
+resfile.open( "RESULTAT_FMOV.txt", false);
+resfile.print("1=happy, 2=angry, 3=neutral");
+resfile.print("\n");
+resfile.print("Condition");
+resfile.print("\t");
+resfile.print("Attractiveness rating");
+resfile.print("\n");
+
+int t=(random(10000,15000));
+
+videos_angry.shuffle();
+videos_happy.shuffle();
+videos_neutral.shuffle();
+
+array<int> alltrials[12][2];
+input_file myfile = new input_file;
+myfile.open(fname);
+loop int r=1; until r > 12 begin
+	alltrials[r][1] = myfile.get_int();
+	alltrials[r][2] = myfile.get_int(); 
+	r=r+1;
+end;
+myfile.close();
+
+loop int tr=1; 
+	int a = 1;
+	int b = 1;
+	int c = 1; 
+until tr > 12 begin
+	int thiscond = alltrials[tr][2];
+
+	if thiscond == 1 then # angry 
+		resfile.print(alltrials[tr][2]);
+		resfile.print("\t");
+		ev_vid.set_stimulus(videos_angry[a]);
+		ev_vid.set_port_code(pulse_angry);
+		a = a+1;
+		tr=tr+1;
+
+	elseif thiscond == 2 then # happy
+		resfile.print(alltrials[tr][2]);
+		resfile.print("\t");
+		ev_vid.set_stimulus(videos_happy[b]);
+		ev_vid.set_port_code(pulse_happy);
+		b = b+1;
+		tr=tr+1;
+	
+	elseif thiscond == 3 then # neutral 
+		resfile.print(alltrials[tr][2]);
+		resfile.print("\t");		
+		ev_vid.set_stimulus(videos_neutral[c]);
+		ev_vid.set_port_code(pulse_neutral);
+		c = c+1;
+		tr=tr+1;
+	end;
+
+tr_vid.present();
+
+loop 
+	int confirm = response_manager.total_response_count( 3 ); 
+	int right = response_manager.total_response_count( 2 ); 
+	int right_up = response_manager.total_response_count( 5 );
+	int left = response_manager.total_response_count( 1 );
+	int left_up = response_manager.total_response_count( 4 ); 
+	int x = 0; 
+	int x_inc = 2; 
+	int movement = 0;
+	scale.set_part(3,number[1]); 
+	scale.set_part(4,number[2]); 
+	scale.set_part(5,questions[1]); 
+	scale.present(); 
+until 
+	response_manager.total_response_count( 3 ) > confirm 
+begin 
+	if response_manager.total_response_count( 1 ) > left then 
+		movement = -1;
+		left = response_manager.total_response_count( 1 );
+	elseif response_manager.total_response_count( 4 ) > left_up then 
+		movement = 0;
+		left_up = response_manager.total_response_count( 4 ); 
+	elseif response_manager.total_response_count( 2 ) > right then 
+		movement = 1;
+		right = response_manager.total_response_count( 2 );
+	elseif response_manager.total_response_count( 5 ) > right_up then 
+		movement = 0;
+		right_up = response_manager.total_response_count( 5 );		
+end; 
+	x = x + (movement * x_inc); 
+	if x < -100 then x = -100 elseif x > 100 then x = 100 end;
+			
+	scale.set_part_x( 2, x ); 
+	scale.present(); 
+	
+	if response_manager.total_response_count( 3 ) > confirm then
+	resfile.print (x); 
+	resfile.print ("\n");
+	end;
+end;
+
+ev_fixation_cross.set_duration(t);
+tr_rest.present ();
+
+end;
