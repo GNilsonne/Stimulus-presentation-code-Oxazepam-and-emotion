@@ -1,0 +1,243 @@
+int pulse_inst1_neg = 1;
+int pulse_inst2_neg = 2;
+int pulse_inst1_neu = 4;
+int pulse_inst2_neu = 8;
+
+default.present();
+parameter_window.remove_all();
+
+# When program is run, enter "ER1a" or "ER1b" etc..at subject prompt.
+# This controls which file is opened.
+string enterfname = logfile.subject();
+
+# read trial order from file.
+string fname = "triallist_" + enterfname + ".txt";
+
+output_file resfile = new output_file;
+resfile.open("RESULTAT_ER.txt", false);
+resfile.print("1=nedreglera_neg, 2=uppreglera_neg, 3=uppreglera_neu, 4=nedreglera_neu");
+resfile.print("\n");
+resfile.print("Tillstånd");
+resfile.print("\t");
+resfile.print("Obehag");
+resfile.print("\n");
+
+int ntmax = 64; #number of trials
+
+array<int> alltrials[ntmax][3]; #no of columns in trial list
+input_file myfile = new input_file;
+myfile.open(fname);
+loop int r=1; until r > ntmax begin
+	alltrials[r][1] = myfile.get_int();
+	alltrials[r][2] = myfile.get_int(); 
+	alltrials[r][3] = myfile.get_int(); 
+	r=r+1;
+end;
+myfile.close();
+
+tr_iti.present();
+
+loop int tr=1; until tr > 32 begin
+	int s = (random(2000,6000));
+	int t = (random(2000,6000));
+	int thiscond = alltrials[tr][2];
+	int thispic= alltrials[tr][3];
+	pic_inst.clear();
+	pic_pic.clear();
+
+	if thiscond == 1 then # blockera neg 
+	 
+		#add instruction nr 1 & pic nr "thispic" & present
+		pic_inst.add_part(inst[1],0,0);
+		pic_pic.add_part(pic[thispic],0,0);
+		
+		ev_pic.set_event_code("Pic");
+		ev_pic.set_port_code(pulse_inst1_neg);
+
+	elseif thiscond == 2 then # bejaka neg 
+	 
+		#add instruction nr 2 & pic nr "thispic" & present
+		pic_inst.add_part(inst[2],0,0);
+		pic_pic.add_part(pic[thispic],0,0);
+		
+		ev_pic.set_event_code("Pic");
+		ev_pic.set_port_code(pulse_inst2_neg);
+	
+	elseif thiscond == 3 then # bejaka neutral 
+	 
+		#add instruction nr 2 & pic nr "thispic" & present
+		pic_inst.add_part(inst[2],0,0);
+		pic_pic.add_part(pic[thispic],0,0);
+	
+		ev_pic.set_event_code("Pic");
+		ev_pic.set_port_code(pulse_inst2_neu);
+
+	elseif thiscond == 4 then # blockera neutral 
+	 
+		#add instruction nr 1 & pic nr "thispic" & present
+		pic_inst.add_part(inst[1],0,0);
+		pic_pic.add_part(pic[thispic],0,0);
+		
+		ev_pic.set_event_code("Pic");
+		ev_pic.set_port_code(pulse_inst1_neu);	
+
+	end;
+
+	ev_interval.set_duration(s);
+	tr_instpic.present();
+	tr_rate.present();
+
+	resfile.print(alltrials[tr][2]);
+	resfile.print("\t");
+
+	loop 
+		int confirm = response_manager.total_response_count( 3 ); 
+		int right = response_manager.total_response_count( 2 ); 
+		int right_up = response_manager.total_response_count( 5 );
+		int left = response_manager.total_response_count( 1 );
+		int left_up = response_manager.total_response_count( 4 ); 
+		int x = -100; 
+		int x_inc = 2; 
+		int movement = 0;
+		scale.set_part(3,number[1]); 
+		scale.set_part(4,number[2]); 
+		scale.set_part(5,questions[1]); 
+		scale.present(); 
+	until 
+		response_manager.total_response_count( 3 ) > confirm 
+	begin 
+		if response_manager.total_response_count( 1 ) > left then 
+			movement = -1;
+			left = response_manager.total_response_count( 1 );
+		elseif response_manager.total_response_count( 4 ) > left_up then 
+			movement = 0;
+			left_up = response_manager.total_response_count( 4 ); 
+		elseif response_manager.total_response_count( 2 ) > right then 
+			movement = 1;
+			right = response_manager.total_response_count( 2 );
+		elseif response_manager.total_response_count( 5 ) > right_up then 
+			movement = 0;
+			right_up = response_manager.total_response_count( 5 );		
+	end; 
+	x = x + (movement * x_inc); 
+	if x < -100 then x = -100 elseif x > 100 then x = 100 end;
+			
+	scale.set_part_x( 2, x ); 
+	scale.present(); 
+	
+	if response_manager.total_response_count( 3 ) > confirm then
+		resfile.print (x); 
+		resfile.print ("\n");
+	end;
+	end;
+
+	ev_iti.set_duration(t); 
+	tr_iti.present();
+	
+	tr=tr+1;
+	
+end;
+
+tr_rest.present();
+
+loop int tr=33; until tr > 64 begin
+	int s = (random(2000,6000));
+	int t = (random(2000,6000));
+	int thiscond = alltrials[tr][2];
+	int thispic= alltrials[tr][3];
+	
+	pic_inst.clear();
+	pic_pic.clear();
+
+	if thiscond == 1 then # blockera neg 
+	 
+		#add instruction nr 1 & pic nr "thispic" & present
+		pic_inst.add_part(inst[1],0,0);
+		pic_pic.add_part(pic[thispic],0,0);
+		
+		ev_pic.set_event_code("Pic");
+		ev_pic.set_port_code(pulse_inst1_neg);
+
+	elseif thiscond == 2 then # bejaka neg 
+	 
+		#add instruction nr 2 & pic nr "thispic" & present
+		pic_inst.add_part(inst[2],0,0);
+		pic_pic.add_part(pic[thispic],0,0);
+		
+		ev_pic.set_event_code("Pic");
+		ev_pic.set_port_code(pulse_inst2_neg);
+	
+	elseif thiscond == 3 then # bejaka neutral 
+	 
+		#add instruction nr 2 & pic nr "thispic" & present
+		pic_inst.add_part(inst[2],0,0);
+		pic_pic.add_part(pic[thispic],0,0);
+		
+		ev_pic.set_event_code("Pic");
+		ev_pic.set_port_code(pulse_inst2_neu);
+
+	elseif thiscond == 4 then # blockera neutral 
+	 
+		#add instruction nr 1 & pic nr "thispic" & present
+		pic_inst.add_part(inst[1],0,0);
+		pic_pic.add_part(pic[thispic],0,0);
+		
+		ev_pic.set_event_code("Pic");
+		ev_pic.set_port_code(pulse_inst1_neu);	
+
+end;
+
+	ev_interval.set_duration(s);
+	tr_instpic.present();
+	tr_rate.present();
+
+	resfile.print(alltrials[tr][2]);
+	resfile.print("\t");
+
+	loop 
+		int confirm = response_manager.total_response_count( 3 ); 
+		int right = response_manager.total_response_count( 2 ); 
+		int right_up = response_manager.total_response_count( 5 );
+		int left = response_manager.total_response_count( 1 );
+		int left_up = response_manager.total_response_count( 4 ); 
+		int x = -100; 
+		int x_inc = 2; 
+		int movement = 0;
+		scale.set_part(3,number[1]); 
+		scale.set_part(4,number[2]); 
+		scale.set_part(5,questions[1]); 
+		scale.present(); 
+	until 
+		response_manager.total_response_count( 3 ) > confirm 
+	begin 
+		if response_manager.total_response_count( 1 ) > left then 
+			movement = -1;
+			left = response_manager.total_response_count( 1 );
+		elseif response_manager.total_response_count( 4 ) > left_up then 
+			movement = 0;
+			left_up = response_manager.total_response_count( 4 ); 
+		elseif response_manager.total_response_count( 2 ) > right then 
+			movement = 1;
+			right = response_manager.total_response_count( 2 );
+		elseif response_manager.total_response_count( 5 ) > right_up then 
+			movement = 0;
+			right_up = response_manager.total_response_count( 5 );		
+	end; 
+	x = x + (movement * x_inc); 
+	if x < -100 then x = -100 elseif x > 100 then x = 100 end;
+			
+	scale.set_part_x( 2, x ); 
+	scale.present(); 
+	
+	if response_manager.total_response_count( 3 ) > confirm then
+		resfile.print (x); 
+		resfile.print ("\n");
+	end;
+	end;
+
+	ev_iti.set_duration(t); 
+	tr_iti.present();
+	tr=tr+1;
+	
+end;	
+resfile.close();
