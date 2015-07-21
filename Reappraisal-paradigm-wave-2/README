@@ -2,5 +2,4 @@ This folder contains the files necessary to run an experiment on emotional reapp
 Code is written for the Presentation software (Neurobehavioral Systems, USA).
 Presentation needs the .sce and .pcl files in order to execute the experiment. 
 The software should be configured to ask for user input, and either "er1a" or "er1b" should be entered in order to call one of these two counterbalanced trial lists, giving the stimulus sequence.
-Experimental stimuli were pictures from the International Affective Picture System (http://csea.phhp.ufl.edu/media/iapsmessage.html). The pictures are not in the public domain and are therefore not published here.
-The template file "ERresp_temp.tem" contains a list of the images used.
+Experimental stimuli were pictures from the International Affective Picture System (IAPS, http://csea.phhp.ufl.edu/media/iapsmessage.html), listed in the template file "ERresp_temp.tem". The pictures are not in the public domain and are therefore not published here.
